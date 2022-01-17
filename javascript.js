@@ -1,3 +1,4 @@
+
 function computerPlay() {
     let i = Math.random() * 100;
     if(i <= 33) {
@@ -11,15 +12,18 @@ function computerPlay() {
     }
 }
     
-const playerSelection = window.prompt("choose your weapon").toLowerCase();
-function promptAgain() {
+
+
+function playerplay() {
     return window.prompt("choose your weapon").toLowerCase();
 }
-const computerSelection = computerPlay();
+
+let computerSelection = computerPlay();
+let playerSelection = playerplay();
 
 
 
-function round(computerPlay(), ) {
+function round(playerSelection, computerSelection) {
     
     if (playerSelection == "rock" && computerSelection == "Rock") {
         return "Tie! You both chose rock.";
@@ -52,20 +56,20 @@ function round(computerPlay(), ) {
 }
 
 
-roundresult = round(playerSelection, computerSelection);
+let roundresult = round(playerSelection, computerSelection);
 playerscore = 0;
 compscore = 0;
 
-function game(roundresult) {
-    
-    if (roundresult == "You lose! Paper beats Rock." || "You lose! Scissors beats Paper." || "You lose! Rock beats Scissors") {
+function gameresult(roundresult) {
+    if (roundresult == ("You lose! Paper beats Rock.") || roundresult == ("You lose! Scissors beats Paper.") || roundresult == ("You lose! Rock beats Scissors")) {
         return (compscore++);
     }
-    else if (roundresult == "You win! Scissors beats Paper." || "You win! Paper beats Rock." || "You win! Rock beats Scissors.") {
+    else if (roundresult === ("You win! Scissors beats Paper.") || roundresult == ("You win! Paper beats Rock.") || roundresult == ("You win! Rock beats Scissors.")) {
         return (playerscore++);
     }
-    else {return "error";}
+    else {return "No points are given out for ties.";}
 }
+
 
 
 
@@ -81,13 +85,39 @@ function gameend(playerscore, compscore) {
 }
 
 console.log(round(playerSelection, computerSelection));
-game(roundresult);
+gameresult(roundresult);
 console.log(`Your score is ${playerscore}`);
 console.log(`The computers score is ${compscore}`)
+gameend(playerscore, compscore);
 
-for (let i = 0; i < 9; i++) {
-    round(promptagain(playerSelection), computerPlay()), game(roundresult), console.log(round(playerSelection, computerSelection)), console.log(`Your score is ${playerscore}`), console.log(`The computers score is ${compscore}`);
+
+function gameagain() {
+    let playerSelection = playerplay();
+    let computerSelection = computerPlay();
+    let roundresult = round(playerSelection, computerSelection);
+    console.log(roundresult);
+    gameresult(roundresult);
+    console.log(`Your score is ${playerscore}`);
+    console.log(`The computers score is ${compscore}`);
+    gameend(playerscore, compscore);
+    
 }
+gameagain();
+gameagain();
+gameagain();
+gameagain();
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
