@@ -62,10 +62,10 @@ function round(playerSelection, computerSelection) {
 
 function gameend(playerscore, compscore) {
     if (playerScore == 5) {
-        alert("You have reached a score of 5! You win!"), window.location.reload();
+        alert("You have reached a score of 5! You win! The game will restart now."), window.location.reload();
     }
     else if(compScore == 5) {
-        alert("The computer has reached a score of 5! You Lose!"), window.location.reload();
+        alert("The computer has reached a score of 5! You Lose! The game will restart now."), window.location.reload();
     }
 }
 
